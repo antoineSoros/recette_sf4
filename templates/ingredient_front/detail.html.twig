@@ -1,0 +1,43 @@
+{% extends "base.html.twig" %}
+{% block stylesheets %}<link rel="stylesheet" type="text/css" href="../semantic/dist/semantic.min.css">
+<script
+  src="https://code.jquery.com/jquery-3.1.1.min.js"
+  integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+  crossorigin="anonymous"></script>
+<script src="semantic/dist/semantic.min.js"></script>{% endblock %}
+
+
+{% block body %}
+    <div class="ui two column stackable grid" style="margin-top: 10%">
+        <div class="centered row">
+  <div class=" centered column">
+    <div class="ui raised piled segment">
+    
+        <div class="ui header centered">{{ ingredient.nom|upper }}</div>
+        
+        <div class="paragraph">
+           
+            <div class="ui header"style="margin-top: 2%">Recettes:</div>
+            <ul>
+                {% if ingredient.recettes is not empty %}
+                {% for recette in ingredient.recettes %}
+                <li>Nom: {{ recette.titre }}</li>
+               
+              
+           
+         {% if recette.utilisateur %}
+           
+             <li> Auteur: {{ recette.utilisateur }}</li>
+         {% else %}<li>ANONYME  </li>
+         {% endif %}
+           {% endfor %}
+                {% else %}<li>PAS DE RECETTE</li>
+                {% endif %}
+            </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+    </div>
+         <a href="{{path("ingredient_front")}}" class="ui button">Retout List</a>
+{% endblock %}
