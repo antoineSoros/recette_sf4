@@ -1,0 +1,51 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Recette{% endblock %}
+{% block stylesheets %}<link rel="stylesheet" type="text/css" href="../semantic/dist/semantic.min.css">
+<script
+  src="https://code.jquery.com/jquery-3.1.1.min.js"
+  integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+  crossorigin="anonymous"></script>
+<script src="semantic/dist/semantic.min.js"></script>{% endblock %}
+{% block body %}
+    <h1>Recette</h1>
+
+    <table class="ui table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ recette.id }}</td>
+            </tr>
+            <tr>
+                <th>Titre</th>
+                <td>{{ recette.titre }}</td>
+            </tr>
+            <tr>
+                <th>Detail</th>
+                <td>{{ recette.detail }}</td>
+            </tr>
+             <tr>
+                <th>Utilisateur</th>
+                <td>{{ recette.utilisateur }}</td>
+            </tr>
+            <tr>
+                <th>Ingredient(s)</th>
+               
+                <td>
+                    <ul class="ui list">
+                     {% for ingredient in recette.ingredients %}
+                         <li> {{ ingredient.nom }}</li>
+                     {% endfor %}
+                    </ul>
+                </td>
+               
+            </tr>
+        </tbody>
+    </table>
+
+                     <a href="{{ path('recette_index') }}"class="ui button">back to list</a>
+
+    <a href="{{ path('recette_edit', {'id': recette.id}) }}"class="ui button">edit</a>
+
+    {{ include('recette/_delete_form.html.twig') }}
+{% endblock %}

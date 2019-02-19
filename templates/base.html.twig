@@ -6,6 +6,25 @@
         {% block stylesheets %}{% endblock %}
     </head>
     <body>
+        <h1 class="ui header centered"style="font-size: 4em;margin-top: 2%">LES RECETTES DE MAMAN</h1>
+        <div class="ui tabular menu">
+            <a class=" item"href="{{path("recette_index")  }}">
+   Recettes
+  </a>
+  <a class="item"href="{{path("recette_front")  }}">
+   Recettes Alpha
+  </a>
+    <a class="item"href="{{path("ingredient_index")  }}">
+   Ingredients
+  </a>
+    <a class="item"href="{{path("ingredient_front")  }}">
+   Ingredients ALPHA
+  </a>
+   </a>
+    <a class="item"href="{{path("utilisateur_index")  }}">
+   Utilisateurs
+  </a>
+</div>
         {% block body %}{% endblock %}
         {% block javascripts %}{% endblock %}
     </body>

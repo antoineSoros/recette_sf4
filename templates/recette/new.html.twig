@@ -1,0 +1,16 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New Recette{% endblock %}
+{% block stylesheets %}<link rel="stylesheet" type="text/css" href="../semantic/dist/semantic.min.css">
+<script
+  src="https://code.jquery.com/jquery-3.1.1.min.js"
+  integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+  crossorigin="anonymous"></script>
+<script src="semantic/dist/semantic.min.js"></script>{% endblock %}
+{% block body %}
+    <h1>Create new Recette</h1>
+
+    {{ include('recette/_form.html.twig') }}
+
+    <a href="{{ path('recette_index') }}">back to list</a>
+{% endblock %}
